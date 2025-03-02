@@ -9,8 +9,8 @@ def get_days_from_today(date):
         return delta.days
     
     except ValueError:
-        raise ValueError("Неправильний формат дати. Використовуйте 'РРРР-ММ-ДД'")
-    
+        print("Неправильний формат дати. Використовуйте 'РРРР-ММ-ДД'")
+        return 0
 
 result = get_days_from_today('2021-10-09')
 print(result)
@@ -22,14 +22,14 @@ import random
 
 
 def get_numbers_ticket(min, max, quantity):
-    if min >= 1 and max <= 1000:
+    if min >= 1 and max <= 1000 and quantity <= max - min and max >= min :
         numbers = random.sample(range(min, max+1), quantity)
         numbers.sort()
         return sorted(numbers)
     else: 
         return []
 
-lottery_numbers = get_numbers_ticket(1, 49, 9)
+lottery_numbers = get_numbers_ticket(10, 14, 6)
 print("Ваші лотерейні числа:", lottery_numbers)
 
 
